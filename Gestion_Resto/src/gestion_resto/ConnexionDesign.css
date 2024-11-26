@@ -1,0 +1,107 @@
+/* 
+    Created on : 25 nov. 2024, 08:56:29
+    Author     : Peughouia
+*/
+
+/* Styles de base */
+.gradiant {
+    -fx-background-color: linear-gradient(to bottom right, #2ce890, #25206b);
+}
+
+.white-form {
+    -fx-background-color: #fff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
+}
+
+.head-label {
+    -fx-border-color: #2ce890;
+    -fx-border-width: 0 0 0 3;
+    -fx-padding: 0 0 0 8;
+    -fx-font-weight: bold;
+    -fx-font-size: 24px;
+    -fx-text-fill: #333333;
+}
+
+/* Style du bouton de connexion */
+.login-btn {
+    -fx-background-color: linear-gradient(to bottom right, #248367, #1d5297);
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 0);
+    -fx-transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    -fx-background-color: linear-gradient(to bottom right, #49998f, #0f3d83);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 8, 0, 0, 0);
+
+}
+
+/* Style du champ de texte avec label flottant */
+.text-field-container {
+    -fx-spacing: 5;
+    -fx-padding: 5;
+}
+
+.floating-text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: linear-gradient(to bottom right, #49998f, #0f3d83);
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 5 0 5 0;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #888888;
+}
+
+.floating-text-field:focused {
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #2ce890;
+}
+
+.floating-label {
+    -fx-text-fill: #888888;
+    -fx-font-size: 12px;
+    -fx-translate-y: 20;
+    -fx-opacity: 0;
+}
+
+.floating-text-field:focused + .floating-label,
+.floating-text-field:not(:empty) + .floating-label {
+    -fx-translate-y: 0;
+    -fx-opacity: 1;
+    -fx-text-fill: #2ce890;
+}
+
+/* Style du bouton de création */
+.create-btn {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-border-color: #fff;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-padding: 8 16 8 16;
+    -fx-font-size: 13px;
+    -fx-transition: all 0.3s ease;
+}
+
+.create-btn:hover {
+    -fx-background-color: #fff;
+    -fx-text-fill: #25206b;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 0);
+}
+
+/* Styles additionnels pour améliorer l'apparence générale */
+
+.fa {
+    -fx-font-family: "FontAwesome";
+    -fx-font-size: 24px;
+}
+
+.fa:hover {
+    -fx-rotate: 0;
+    -fx-animation: rotate 1s infinite linear;
+}
+
