@@ -4,6 +4,10 @@
  */
 package gestion_resto;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  *
  * @author Peughouia
@@ -12,11 +16,11 @@ public class Menu {
     private String nom;
     private String description;
     private String type;
-    private double prix;
+    private int prix;
     private int stock_dispo;
 
     // Constructeur
-    public Menu(String nom, String description, String type, double prix, int stock_dispo) {
+    public Menu(String nom, String description, String type, int prix, int stock_dispo) {
         this.nom = nom;
         this.description = description;
         this.type = type;
@@ -62,12 +66,37 @@ public class Menu {
         this.nom = nom;
     }
 
-    public void setPrix(double prix) {
+    public void setPrix(int prix) {
         this.prix = prix;
     }
+    
+    public boolean saveMenu(){
+        dataBase co = new dataBase();
+        Connection con = co.connectDB();
+        String query = "INSERT INTO menu(nom, description, type, prix, stock_dispo)"+ "VALUES ('"
+                +this.nom+"','"+this.description+"','"+this.type+"','"+this.prix+"','"+this.stock_dispo+"')";
+        try{
+            //Creation de lobjet
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate(query);
+            System.out.println("menu enregistré");
+            con.close();
+            return true;
+        }catch(SQLException e){
+            System.out.print("echec");
+            e.printStackTrace();
+            return false;
+        }
+    } 
 
     @Override
     public String toString() {
         return "Menu: " + nom + ", Prix: " + prix + "fcfa";
+    }
+    
+    public static void main(String[] args) {
+        // Créer une instance de BookDAO et enregistrer un livre
+        Menu menu = new Menu("orange frute", "jus orange base orange et cerise", "boisson", 5000, 30);
+        menu.saveMenu();
     }
 }
